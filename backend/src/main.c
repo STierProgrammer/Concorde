@@ -7,11 +7,6 @@ int main()
 {
     sqlite3 *db;
     int rc;
-    int ch = 0;
-
-    initscr();
-    echo();
-    printw("Welcome to Concorde!\nProcess ID: %d", getpid());
     rc = sqlite3_open("test.db", &db);
 
     if (rc)
@@ -23,8 +18,5 @@ int main()
     {
         fprintf(stderr, "Opened database successfully\n");
     }
-    noecho();
-    ch = getch();
-    endwin();
     sqlite3_close(db);
 }
