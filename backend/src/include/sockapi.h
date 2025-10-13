@@ -20,8 +20,17 @@
 #endif
 
 #ifdef _WIN32
-int sockapi_connect(SOCKET s, const sockaddr *n, size_t nlen);
+int sockapi_socket(int af, int type, int protocol);
+SOCKET sockapi_connect(SOCKET s, const sockaddr *n, size_t nlen);
+int sockapi_send(SOCKET s, const char* b, size_t blen, int f);
 #endif
+
+#ifdef __linux__
+int sockapi_socket(int domain, int type, int protocol);
+int sockapi_connect(int fd, const struct sockaddr* addr, socklen_t l);
+int sockapi_send(int fd, const void *buf, size_t size, int f);
+#endif
+
 // TODO: lmao
 
 #endif
