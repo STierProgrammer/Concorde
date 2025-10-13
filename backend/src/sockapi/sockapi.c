@@ -1,4 +1,4 @@
-#include "include/sockapi.h"
+#include "../../include/sockapi.h"
 
 #ifdef _WIN32
 
