@@ -29,6 +29,24 @@ int sockapi_sendto(SOCKET s, const char* b, size_t blen, int f, const sockaddr* 
         tlen
     );
 }
+int sockapi_recv(SOCKET s, char* b, size_t len, int f) {
+    return recv(
+        s,
+        b,
+        len,
+        f
+    );
+}
+
+int sockapi_recvfrom(SOCKET s, char* b, size_t len, int f, sockaddr* from, size_t slen) {
+    return recvfrom(
+        s,
+        b,
+        len,
+        from,
+        slen
+    );
+}
 #endif
 
 #ifdef __linux__
@@ -61,6 +79,26 @@ ssize_t sockapi_sendto(int fd, const void *buf, size_t size, int f, const struct
         size,
         f,
         d,
+        l
+    );
+}
+
+ssize_t sockapi_recv(int fd, void* buf, size_t size, int f) {
+    return recv(
+        fd,
+        buf,
+        size,
+        f
+    );
+}
+
+ssize_t sockapi_recvfrom(int fd, void* buf, size_t size, int f, struct sockaddr* addr, socklen_t* l) {
+    return recvfrom(
+        fd,
+        buf,
+        size,
+        f,
+        addr,
         l
     );
 }
