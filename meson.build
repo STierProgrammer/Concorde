@@ -3,6 +3,7 @@ project('Concorde', 'c', version : '0.1.0', default_options : ['warning_level=3'
 src_dir = 'backend/src'
 include_dir = join_paths('backend', 'include')
 sqlite_dep = dependency('sqlite3', required: true)
+ncurses_dep = dependency('ncurses', required: true)
 
 sources = files()
 foreach f : run_command('find', src_dir, '-name', '*.c', check : true).stdout().strip().split('\n')
@@ -14,7 +15,7 @@ endforeach
 executable(
   'concorde',
   sources,
-  dependencies: sqlite_dep,
+  dependencies: [sqlite_dep, ncurses_dep],
   include_directories : include_directories(include_dir),
   install : true,
 )
