@@ -23,12 +23,14 @@
 int sockapi_socket(int af, int type, int protocol);
 SOCKET sockapi_connect(SOCKET s, const sockaddr *n, size_t nlen);
 int sockapi_send(SOCKET s, const char* b, size_t blen, int f);
+int sockapi_sendto(SOCKET s, const char* b, size_t blen, int f, const sockaddr* t, size_t tlen);
 #endif
 
 #ifdef __linux__
 int sockapi_socket(int domain, int type, int protocol);
 int sockapi_connect(int fd, const struct sockaddr* addr, socklen_t l);
-int sockapi_send(int fd, const void *buf, size_t size, int f);
+ssize_t sockapi_send(int fd, const void *buf, size_t size, int f);
+ssize_t sockapi_sendto(int fd, const void *buf, size_t size, int f, const struct sockaddr* d, socklen_t l);
 #endif
 
 // TODO: lmao
