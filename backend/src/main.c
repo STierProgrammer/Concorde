@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <sqlite3.h>
 #include <curses.h>
-#include "../include/sockapi.h"
+#include "sockapi.h"
 
 int main()
 {
