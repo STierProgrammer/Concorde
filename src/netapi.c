@@ -58,6 +58,8 @@ int netapi_send_crlf_line(NetAPIConnection *n, char *dat) {
 }
 
 int netapi_http_send_get(NetAPIConnection* n, char *out, char* file, size_t outsz) {
+    if(!n || !out || !file) 
+        return -1;
     char* req = malloc(1024);
     snprintf(req, 1024, "GET %s HTTP/1.1\r\nHost: %s\r\n", file, n->serverip);
     if(netapi_send_crlf_line(n, req) == -1)
