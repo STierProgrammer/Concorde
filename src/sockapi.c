@@ -47,6 +47,13 @@ int sockapi_recvfrom(SOCKET s, char* b, size_t len, int f, sockaddr* from, size_
         slen
     );
 }
+
+int sockapi_close(SOCKET s) {
+    return closesocket(
+        s
+    );
+}
+
 #endif
 
 #ifdef __linux__

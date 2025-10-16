@@ -17,6 +17,7 @@ int sockapi_send(SOCKET s, const char* b, size_t blen, int f);
 int sockapi_sendto(SOCKET s, const char* b, size_t blen, int f, const sockaddr* t, size_t tlen);
 int sockapi_recv(SOCKET s, char* b, size_t len, int f);
 int sockapi_recvfrom(SOCKET s, char* b, size_t len, int f, sockaddr* from, size_t slen);
+int sockapi_close(SOCKET s);
 #endif // windows end
 
 #ifdef __linux__ // linux

@@ -10,12 +10,14 @@ ncurses_dep = dependency('ncurses', required: true)
 
 server_sources = files(
   join_paths(backend_dir, 'main.c'),
-  join_paths(src_dir, 'sockapi.c')
+  join_paths(src_dir, 'sockapi.c'),
+  join_paths(src_dir, 'netapi.c')
 )
 
 client_sources = files(
   join_paths(client_dir, 'main.c'),
-  join_paths(src_dir, 'sockapi.c')
+  join_paths(src_dir, 'sockapi.c'),
+  join_paths(src_dir, 'netapi.c')
 )
 
 executable(
