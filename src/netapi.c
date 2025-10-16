@@ -57,11 +57,12 @@ int netapi_send_crlf_line(NetAPIConnection *n, char *dat) {
     return 0;
 }
 
-int netapi_http_send_get(NetAPIConnection* n, char *out, char* file, size_t outsz) {
-    if(!n || !out || !file) 
+int netapi_http_send_get(NetAPIConnection* n, char *out, char* file, size_t outsz, char* dmn) {
+    if(!n || !out || !file || !dmn) 
         return -1;
+
     char* req = malloc(1024);
-    snprintf(req, 1024, "GET %s HTTP/1.1\r\nHost: %s\r\n", file, n->serverip);
+    snprintf(req, 1024, "GET %s HTTP/1.1\r\nHost: %s\r\n", file, dmn);
     if(netapi_send_crlf_line(n, req) == -1)
         return -1;
     if(sockapi_recv(n->sock, out, outsz, 0) == -1)

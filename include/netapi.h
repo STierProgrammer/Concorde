@@ -25,7 +25,7 @@ NetAPIConnection* netapi_new_connection(char* serveraddr, int port);
 int netapi_close_connection(NetAPIConnection* connection);
 NetAPIConnection* netapi_get_connection_by_connectid(int connectid);
 int netapi_send_crlf_line(NetAPIConnection* n, char* dat);
-int netapi_http_send_get(NetAPIConnection* n, char* out, char* file, size_t outsz);
+int netapi_http_send_get(NetAPIConnection* n, char* out, char* file, size_t outsz, char* dmn);
 // hello
 
 #endif
