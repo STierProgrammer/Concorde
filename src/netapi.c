@@ -70,3 +70,10 @@ int netapi_http_send_get(NetAPIConnection* n, char *out, char* file, size_t outs
     free(req);
     return 0;
 }
+int netapi_get_data(NetAPIConnection* n, char* out, size_t s) {
+    if(!n || !out)
+        return -1;
+    if(sockapi_recv(n->sock, out, s, 0) == -1) 
+        return -1;
+    return 0;
+}
