@@ -17,7 +17,8 @@ server_sources = files(
 client_sources = files(
   join_paths(client_dir, 'main.c'),
   join_paths(src_dir, 'sockapi.c'),
-  join_paths(src_dir, 'netapi.c')
+  join_paths(src_dir, 'netapi.c'),
+  join_paths(src_dir, 'logs.c')
 )
 
 executable(
