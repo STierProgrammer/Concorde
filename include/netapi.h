@@ -11,10 +11,6 @@ typedef struct NetAPIConnection {
     #ifdef __linux__
         int sock;
     #endif
-    char* input;
-    char* output;
-    size_t outputtail;
-    size_t outputhead;
     char* serverip;
     struct NetAPIConnection* next;
 } NetAPIConnection;
@@ -28,6 +24,7 @@ int netapi_send_crlf_line(NetAPIConnection* n, char* dat);
 int netapi_http_send_get(NetAPIConnection* n, char* out, char* file, size_t outsz, char* dmn);
 int netapi_get_data(NetAPIConnection* n, char* out, size_t s);
 int netapi_get_data_until_cr(NetAPIConnection* n, char* out);
+int netapi_dump_connect_to_stdout(NetAPIConnection* n);
 // hello
 
 #endif

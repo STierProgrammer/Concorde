@@ -90,3 +90,12 @@ int netapi_get_data_until_cr(NetAPIConnection *n, char *out) {
     }
     return 0;
 }
+int netapi_dump_connect_to_stdout(NetAPIConnection* n) {
+    if(!n)
+        return -1;
+    printf("connectid: %d\nserverip: %s\nsock: %d\nnextptr: %p\n", n->connectid, n->serverip, n->sock, (void*)n->next);
+    return 0;
+}
+
+
+
