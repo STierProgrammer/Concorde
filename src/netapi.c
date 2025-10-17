@@ -77,3 +77,16 @@ int netapi_get_data(NetAPIConnection* n, char* out, size_t s) {
         return -1;
     return 0;
 }
+
+int netapi_get_data_until_cr(NetAPIConnection *n, char *out) {
+    if(!n || !out) return -1;
+    int i = 0;
+    for(;;) {
+        if(sockapi_recv(n->sock, out, 1, 0) == -1) 
+            return -1; 
+        if(out[i] == '\r') 
+            break;
+        i++;
+    }
+    return 0;
+}
